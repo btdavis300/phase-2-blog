@@ -35,7 +35,6 @@ function bookDisplay() {
         const bookClass = document.querySelectorAll(".bookItem")
         bookClass.forEach(book => {
             book.remove()
-            console.log(bookClass)
         })
     }
 
@@ -69,4 +68,32 @@ function categorySort(event) {
     )
 
     bookDisplay(sortedCategory)
+}
+
+//These Functions can work as well, but looks messy and can clutter up your .js file.
+function sortByTitle() {
+    const sortedArray = books.sort(
+        function (bookA, bookB) {
+            return bookA.title.localeCompare(bookB.title)
+        }
+    )
+    bookDisplay(sortedArray)
+}
+
+function sortByAuthor() {
+    const sortedArray = books.sort(
+        function (bookA, bookB) {
+            return bookA.author.localeCompare(bookB.author)
+        }
+    )
+    bookDisplay(sortedArray)
+}
+
+function sortByPublisher() {
+    const sortedArray = books.sort(
+        function (bookA, bookB) {
+            return bookA.publisher.localeCompare(bookB.publisher)
+        }
+    )
+    bookDisplay(sortedArray)
 }
